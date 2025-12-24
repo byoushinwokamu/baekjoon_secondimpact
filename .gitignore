@@ -1,0 +1,11 @@
+*.exe
+*.o
+a.out
+1_*
+1.py
+tempCodeRunnerFile.cpp
+generator.cpp
+auto_focus
+focus.cc
+focus.py
+result

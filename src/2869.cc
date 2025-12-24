@@ -1,0 +1,27 @@
+// BOJ 2869
+#include <algorithm>
+#include <iostream>
+#include <string>
+#include <vector>
+
+#define fi first
+#define se second
+
+using namespace std;
+
+typedef long long ll;
+typedef pair<int, int> pp;
+
+int main()
+{
+  cin.tie(0), cout.tie(0), ios::sync_with_stdio(0);
+  int a, b, v;
+  cin >> a >> b >> v;
+
+  if (a == v)
+    cout << 1;
+  else
+    cout << (v - b) / (a - b) + ((v - b) % (a - b) ? 1 : 0);
+
+  return 0;
+}
