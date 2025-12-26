@@ -23,32 +23,30 @@ int main()
   for (int pr = 0; pr < n;)
   {
     cin >> t;
-    if (st.empty())
+    if (st.empty()) // 없으면 푸시
     {
       while (i <= t)
         st.push(i++), res.append("+\n");
       st.pop(), res.append("-\n"), pr++;
     }
-    else if (st.top() < t) // 뽑아보거나 푸시해야함
+    else if (st.top() < t) // 탑이 더 작으면 푸시
     {
+      if (i > t) // 앞으로 넣을 숫자가 더 크면 조짐
+      {
+        cout << st.top() << "NO";
+        return 0;
+      }
+
       while (i <= t) // 나올때까지 푸시
         st.push(i++), res.append("+\n");
       st.pop(), res.append("-\n"), pr++;
-
-      if (i > t) // 지나감
-      {
-        cout << res;
-        cout << st.top() << "NOOOOOO";
-        return 0;
-      }
     }
-    else if (st.top() > t) // 가로막고 있음
+    else if (st.top() > t) // 탑이 더 크면 조짐
     {
-      // cout << res;
       cout << "NO";
       return 0;
     }
-    else // same
+    else // 탑이 원하던 숫자임
       st.pop(), res.append("-\n"), pr++;
   }
   cout << res;
