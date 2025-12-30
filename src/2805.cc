@@ -22,7 +22,7 @@ int main()
     cin >> tree[i];
   sort(tree.begin(), tree.end());
 
-  ll lft = tree[0], rht = tree[n - 1];
+  ll lft = 0, rht = tree[n - 1];
   ll ans = 0;
   for (ll mid = (lft + rht) / 2; lft <= rht; mid = (lft + rht) / 2)
   {
