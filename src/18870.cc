@@ -18,11 +18,15 @@ int main()
   int n;
   cin >> n;
   vector<int> v(n);
-  vector<int> vp(n);
 
   for (int i = 0; i < n; i++)
     cin >> v[i];
+
+  vector<int> vp(v);
   sort(v.begin(), v.end());
+  v.erase(unique(v.begin(), v.end()), v.end());
+  for (auto i : vp)
+    cout << (lower_bound(v.begin(), v.end(), i) - v.begin()) << ' ';
 
   return 0;
 }
