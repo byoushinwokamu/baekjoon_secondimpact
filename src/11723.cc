@@ -15,25 +15,25 @@ typedef pair<int, int> pp;
 int main()
 {
   cin.tie(0), cout.tie(0), ios::sync_with_stdio(0);
-  int set = 0;
   int m, a;
   string s;
+  vector<int> set(21);
   cin >> m;
   while (m--)
   {
     cin >> s;
     if (s == "add")
-      cin >> a, set |= (1 << a);
+      cin >> a, set[a] = 1;
     else if (s == "remove")
-      cin >> a, set &= ~(1 << a);
+      cin >> a, set[a] = 0;
     else if (s == "check")
-      cin >> a, cout << ((set & (1 << a)) ? 1 : 0) << '\n';
+      cin >> a, cout << ((set[a]) ? 1 : 0) << '\n';
     else if (s == "toggle")
-      cin >> a, set ^= (1 << a);
+      cin >> a, set[a] = !set[a];
     else if (s == "all")
-      set = 0xffffff;
+      fill(set.begin(), set.end(), 1);
     else if (s == "empty")
-      set = 0;
+      fill(set.begin(), set.end(), 0);
   }
 
   return 0;

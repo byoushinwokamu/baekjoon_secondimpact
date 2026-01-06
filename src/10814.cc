@@ -10,7 +10,7 @@
 using namespace std;
 
 typedef long long ll;
-typedef pair<int, string> pp;
+typedef pair<int, int> pp; // fi: index, se: age
 
 int main()
 {
@@ -18,12 +18,13 @@ int main()
   int n;
   cin >> n;
   vector<pp> v(n);
+  vector<string> name(n);
   for (int i = 0; i < n; i++)
-    cin >> v[i].fi >> v[i].se;
-  stable_sort(v.begin(), v.end(), [](auto a, auto b)
-              { return a.fi < b.fi; });
+    v[i].fi = i, cin >> v[i].se >> name[i];
+  sort(v.begin(), v.end(), [](auto a, auto b)
+       { return a.se == b.se ? a.fi < b.fi : a.se < b.se; });
   for (auto p : v)
-    cout << p.fi << ' ' << p.se << '\n';
+    cout << p.se << ' ' << name[p.fi] << '\n';
 
   return 0;
 }

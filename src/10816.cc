@@ -1,8 +1,9 @@
 // BOJ 10816
 #include <algorithm>
 #include <iostream>
-#include <unordered_map>
 #include <string>
+#include <unordered_map>
+#include <unordered_set>
 #include <vector>
 
 #define fi first
@@ -36,22 +37,44 @@ typedef pair<int, int> pp;
 // }
 
 // vector
+// int main()
+// {
+//   cin.tie(0), cout.tie(0), ios::sync_with_stdio(0);
+//   int n, m, t;
+//   cin >> n;
+//   vector<int> v(20000001);
+//   for (int i = 0; i < n; i++)
+//   {
+//     cin >> t;
+//     v[t + 10000000]++;
+//   }
+//   cin >> m;
+//   for (int i = 0; i < m; i++)
+//   {
+//     cin >> t;
+//     cout << v[t + 10000000] << ' ';
+//   }
+
+//   return 0;
+// }
+
+// multiset
 int main()
 {
   cin.tie(0), cout.tie(0), ios::sync_with_stdio(0);
   int n, m, t;
   cin >> n;
-  vector<int> v(20000001);
+  unordered_multiset<int> ums;
   for (int i = 0; i < n; i++)
   {
     cin >> t;
-    v[t + 10000000]++;
+    ums.insert(t);
   }
   cin >> m;
   for (int i = 0; i < m; i++)
   {
     cin >> t;
-    cout << v[t + 10000000] << ' ';
+    cout << ums.count(t) << ' ';
   }
 
   return 0;
